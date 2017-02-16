@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sy:switchyard xmlns:bean="urn:switchyard-component-bean:config:2.0" xmlns:file="urn:switchyard-component-camel-file:config:2.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" xmlns:sy="urn:switchyard-config:switchyard:2.0" name="Camel-File-Binding" targetNamespace="urn:com.learnjavaonline.switchyard:Camel-File-Binding:1.0">
+  <sca:composite name="Camel-File-Binding" targetNamespace="urn:com.learnjavaonline.switchyard:Camel-File-Binding:1.0">
+    <sca:component name="FileReaderImpl">
+      <bean:implementation.bean class="com.learnjavaonline.switchyard.Camel_File_Binding.FileReaderImpl"/>
+      <sca:service name="FileReader">
+        <sca:interface.java interface="com.learnjavaonline.switchyard.Camel_File_Binding.FileReader"/>
+      </sca:service>
+    </sca:component>
+    <sca:service name="FileReader" promote="FileReaderImpl/FileReader">
+      <sca:interface.java interface="com.learnjavaonline.switchyard.Camel_File_Binding.FileReader"/>
+      <file:binding.file name="CamelFileBinding">
+        <file:directory>C:/tools/temp</file:directory>
+        <file:fileName>filedate.txt</file:fileName>
+        <file:consume/>
+      </file:binding.file>
+    </sca:service>
+  </sca:composite>
+</sy:switchyard>

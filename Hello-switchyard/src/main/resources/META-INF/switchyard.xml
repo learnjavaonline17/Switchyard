@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sy:switchyard xmlns:bean="urn:switchyard-component-bean:config:2.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" xmlns:sy="urn:switchyard-config:switchyard:2.0" name="Hello-switchyard" targetNamespace="urn:com.learnjavaonline.switchyard:Hello-switchyard:1.0">
+  <sca:composite name="Hello-switchyard" targetNamespace="urn:com.learnjavaonline.switchyard:Hello-switchyard:1.0">
+    <sca:component name="HelloWorldBean">
+      <bean:implementation.bean class="com.learnjavaonline.switchyard.Hello_switchyard.HelloWorldBean"/>
+      <sca:service name="HelloWorld">
+        <sca:interface.java interface="com.learnjavaonline.switchyard.Hello_switchyard.HelloWorld"/>
+      </sca:service>
+    </sca:component>
+    <sca:service name="HelloWorld" promote="HelloWorldBean/HelloWorld">
+      <sca:interface.java interface="com.learnjavaonline.switchyard.Hello_switchyard.HelloWorld"/>
+      <sca:binding.sca name="HelloWorldSCABinding"/>
+    </sca:service>
+  </sca:composite>
+</sy:switchyard>
